@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+  {% block title %}<title>Add / Edit block</title>{% endblock %}
+
+{% block content %}
+	<h1>Create /Update blog</h1>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Save</button>
+
+		{% if blog %}
+			<a href="{% url 'delete_blog' blog.id%}">Delete</a>
+		{% endif %}
+	</form>
+{% endblock %}
